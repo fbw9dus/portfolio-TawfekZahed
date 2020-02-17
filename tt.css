@@ -1,0 +1,75 @@
+@keyframes myanimation{
+    0%{background-color: whitesmoke;left: 0px; top:0px; border-radius:0 0 0 0;}
+    25%{background-color: tomato;left:300px;top:0px;border-radius:50% 0 0 0;}
+    50%{background-color: green;left:300px; top:300px;border-radius:50% 50% 0 0;}
+    75%{background-color: blueviolet;left:0px; top:300px;border-radius:50% 50% 50% 0;}
+    100%{background-color: thistle;left: 0px; top:0px;border-radius:50% 50% 50% 50%;}
+ }
+
+
+body{
+    height:670px;
+    padding: 0%;
+    margin:0;
+}
+
+#main-container{
+background: gray;
+position: absolute;
+bottom: 0;
+opacity: .3;
+animation-name: myanimation;
+   animation-duration: 10s;
+   animation-delay: 1s;
+   animation-iteration-count: 2;
+   animation-direction: normal;
+   animation-timing-function: ease-in-out;
+   animation-fill-mode: forwards;
+}
+.t{
+    position: relative;
+    display: inline-block;
+    padding-left: 7px;
+}
+img{
+    height: 670px;
+    width: 1336px
+}
+h1{
+    color:white;
+    transition: top  .5s .5s
+
+}
+.tawfek{
+    padding-top:0;
+    width: 1334px;
+    position: absolute;
+    background: rgb(98, 88, 88);
+    padding-left:7px;
+}
+.tawfek ul{
+    list-style-type: none;
+    position: relative;
+}
+.tawfek ul li{
+    display: block;
+    padding:20px;
+    float:left;
+ }
+ .tawfek ul ul{
+     display:none;
+     position: absolute;
+     background:rgb(98, 88, 88);
+ }
+ .tawfek ul li a{
+     text-decoration: none;
+     color:black;
+
+ }
+ .tawfek ul li:hover ul{
+     display: block;
+ }
+ .tawfek ul li a:hover{
+     color: white;
+ }
+

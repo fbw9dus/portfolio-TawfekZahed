@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="tawfek.css">
+
+</head>
+<body>
+        
+        Collapse
+        <div class="pricingTable">
+                <h2 class="pricingTable-title">Find a plan that's right for you.</h2>
+                <h3 class="pricingTable-subtitle">Every plan comes with a 30-day   free trial.</h3>
+                
+                <ul class="pricingTable-firstTable">
+                  <li class="pricingTable-firstTable_table">
+                    <h1 class="pricingTable-firstTable_table__header">Bronze Packege</h1>
+                    <p class="pricingTable-firstTable_table__pricing"><span>$</span><span>10</span><span>Month</span></p>
+                    <ul class="pricingTable-firstTable_table__options">
+                      <li>Unlimited Listing</li>
+                      <li>Edit Your Listing</li>
+                      <li>Approve Reviews</li>
+                    </ul>
+                    <div class="pricingTable-firstTable_table__getstart">BUY NOW</div>
+                  </li><li class="pricingTable-firstTable_table">
+                    <h1 class="pricingTable-firstTable_table__header">Gold Packege</h1>
+                    <p class="pricingTable-firstTable_table__pricing"><span>$</span><span>19</span><span>Month</span></p>
+                    <ul class="pricingTable-firstTable_table__options">
+                      <li>Unlimited Listing</li>
+                      <li>Edit Your Listing</li>
+                      <li>Approve Reviews</li>
+                      <li>Take Booking Online</li>
+                      <li>24/7 Support Service</li>
+                    </ul>
+                    <div class="pricingTable-firstTable_table__getstart">BUY NOW</div>
+                  </li><li class="pricingTable-firstTable_table">
+                    <h1 class="pricingTable-firstTable_table__header">Platinum Packege</h1>
+                    <p class="pricingTable-firstTable_table__pricing"><span>$</span><span>49</span><span>Month</span></p>
+                    <ul class="pricingTable-firstTable_table__options">
+                      <li>Unlimited Listing</li>
+                      <li>Edit Your Listing</li>
+                      <li>Approve Reviews</li>
+                    </ul>
+                    <div class="pricingTable-firstTable_table__getstart">BUY NOW</div>
+                  </li>
+                </ul>
+              </div>
+              <script>
+                    /* Selektoren für die Elemente im HTML */
+                    var priceContainerSelector = ".pricingTable-firstTable_table"
+                    var buyButtonSelector = ".pricingTable-firstTable_table__getstart"
+            
+                    /* Klassenname, in dem die Animation definiert wurde */
+                    var animationClass = "drop-out"
+            
+                    /* Zeitabstand zwischen Animation der Container (Millisekunden) */
+                    var animationOffsetTime = 100
+            
+                    /* ToDo: Pass diese Funktion so an, dass die Preise, die nicht geklickt wurden, nach einander mit jeweils kurzer Verzögerung die "Fall"-Animation ausführen */
+                    function buyButtonClicked(clickedPriceContainer, priceContainers){
+                        removeRest.addDropAnimation(clickedPriceContainer)
+            
+                        // Bonus: Ternary operator für Drehrichtung je nach gerades oder ungerades Element
+                    }
+            
+                    var removeRest = {
+                        containers: [],
+                        setup: function(selector, callback){
+                            this.buttons = document.querySelectorAll(selector)
+                            this.callback = callback
+                            this.runCallback = this.runCallback.bind(this)
+                            this.buttons.length && this.addListeners()
+                        },
+                        addListeners: function(){
+                            for(var i=0; i<this.buttons.length; i++){
+                                var button = this.buttons[i]
+                                button.addEventListener("click", this.runCallback)
+                                this.containers.push(this.getContainer(button))
+                            }
+                        },
+                        getContainer: function(button){
+                            return button.closest(priceContainerSelector)
+                        },
+                        runCallback: function(e){
+                            this.callback(this.getContainer(e.target), this.containers)
+                        },
+                        addDropAnimation: function(container, delay = 0){
+                            setTimeout(function(){
+                                this.animate(container)
+                            }.bind(this), delay)
+                        },
+                        animate: function(container){
+                            container.classList.add(animationClass)
+                        }
+                    }
+            
+                    removeRest.setup(buyButtonSelector, buyButtonClicked)
+                </script>
+
+</body>
